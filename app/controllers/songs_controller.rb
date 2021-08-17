@@ -5,6 +5,7 @@ class SongsController < ApplicationController
     end
 
     def show
-        render json: Song.find(params[:id])
+        song = Song.find(params[:id])
+        render json: {status: 200, song: song}
     end
 end 
