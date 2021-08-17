@@ -10,7 +10,13 @@ class SongsController < ApplicationController
     end
 
     def create 
+        song = Song.new(song_params)
 
+        if song.save
+            render(status: 201, json: { song: song })
+        else
+            render(status: 422, json: { song: song })
+        end
     end
 
 
